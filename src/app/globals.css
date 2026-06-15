@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-gold: #d4af37;
+  --color-gold-light: #f0d060;
+  --color-gold-dark: #b8941e;
+  --color-dark: #0a0a0a;
+  --color-dark-card: #111111;
+  --color-dark-surface: #1a1a1a;
+  --color-dark-border: #2a2a2a;
+  --color-dark-muted: #888888;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f0d060 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold shimmer animation */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%,
+    #f0d060 25%,
+    #d4af37 50%,
+    #f0d060 75%,
+    #d4af37 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Glow effect */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15),
+              0 0 40px rgba(212, 175, 55, 0.05);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3),
+              0 0 50px rgba(212, 175, 55, 0.1);
+}
+
+/* Card hover animation */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Fade in up animation */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse glow for premium badge */
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #d4af37, #1a1a1a, #d4af37);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Star rating */
+.star-gold {
+  color: #d4af37;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
